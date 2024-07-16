@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+
+  &__auth {
+    a {
+      display: inline-block;
+      background-color: #333;
+      padding: 10px 25px;
+      transition: all 0.2s ease-in-out;
+
+      &:last-child {
+        border-left: 1px solid #828282;
+      }
+
+      &:hover {
+        background-color: #202020;
+      }
+    }
+  }
+}
