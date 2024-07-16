@@ -1,21 +1,31 @@
-// pages/register.js
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebase/firebaseConfig';
+import useAuth from '@/hooks/useAuth';
 
 const Register = () => {
+  const { user } = useAuth();
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const router = useRouter();
 
+  useEffect(() => {
+    if (user) {
+      router.push('/'); // Redirect to homepage if logged in
+    }
+  }, [user, router]);
+
+  // registration user with firebase
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       router.push('/');
+      toast.success('Successfully registered!');
     } catch (error) {
+      toast.error('Failed to register :(');
       setError(error.message);
     }
   };

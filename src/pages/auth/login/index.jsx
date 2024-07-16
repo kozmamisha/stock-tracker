@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
+
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebase/firebaseConfig';
-import { toast } from 'react-toastify';
+import useAuth from '@/hooks/useAuth';
 
 const Login = () => {
+  const { user } = useAuth();
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const router = useRouter();
 
+  useEffect(() => {
+    if (user) {
+      router.push('/'); // Redirect to homepage if logged in
+    }
+  }, [user, router]);
+
+  // login user with firebase
   const handleLogin = async (e) => {
     e.preventDefault();
     try {

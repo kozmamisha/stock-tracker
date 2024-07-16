@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import './header.scss';
 import Link from 'next/link';
-import useAuth from '@/hooks/useAuth';
 import { toast } from 'react-toastify';
+import useAuth from '@/hooks/useAuth';
+import './header.scss';
 
 const Header = () => {
   const { user, logout } = useAuth();
@@ -22,7 +22,7 @@ const Header = () => {
     <header className="header container">
       <nav>
         <Link href="/">Home</Link>
-        <Link href="/something">Something</Link>
+        <Link href="/chart">Stock chart</Link>
       </nav>
       <div className="header__auth">
         {user ? (

@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '@/firebase/firebaseConfig';
-import { toast } from 'react-toastify';
 
+// custom hook for check if user authorized
 const useAuth = () => {
   const [user, setUser] = useState(null);
 
