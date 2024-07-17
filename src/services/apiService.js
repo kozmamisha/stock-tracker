@@ -1,8 +1,10 @@
 // separated service for fetching data from API
 import axios from 'axios';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-const apiKey = process.env.NEXT_PUBLIC_APIKEY;
+// const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+// const apiKey = process.env.NEXT_PUBLIC_APIKEY;
+const BASE_URL = 'https://api.polygon.io/v2/aggs';
+const apiKey = 'zfyY7W9sg0Ld3VQgfOosyyrRFwAT0Cge';
 
 // fetching data from API (in props are specifications to API which user can modify)
 // timespan is responsible for timeout of updating data (hour means updating every 1 hour, 1 cause multiplier = 1)
