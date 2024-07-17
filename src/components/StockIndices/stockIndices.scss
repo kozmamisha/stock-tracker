@@ -31,6 +31,7 @@
       background-color: #23b249;
       padding: 12px 40px;
       border-radius: 5px;
+      cursor: pointer;
       transition: all 0.2s ease;
 
       &:first-child {
@@ -61,4 +62,9 @@
       color: #23b249;
     }
   }
+}
+
+.error {
+  color: red;
+  font-size: 24px;
 }

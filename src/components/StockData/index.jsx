@@ -42,8 +42,15 @@ const StockData = () => {
 
   return (
     <div className="ticker container">
-      <h3>{ticker}</h3>
-      <h2>{stockData.vw}</h2>
+      <div className="ticker__price">
+        <h3>{ticker}</h3>
+        <h2>{stockData.vw}</h2>
+      </div>
+
+      <div className="ticker__date">
+        <h3>Date</h3>
+        <h2>{currentDate}</h2>
+      </div>
     </div>
   );
 };

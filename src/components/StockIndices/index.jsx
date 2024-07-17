@@ -50,20 +50,26 @@ const StockIndices = () => {
           <p>Symbol:</p>
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Write a name of ticker..."
             value={ticker}
             onChange={(e) => setTicker(e.target.value.toUpperCase())}
           />
           <button type="submit">Apply</button>
         </form>
         <div className="indices__result">
+          {/* show loading if data is loading */}
           {loading && <p>Loading...</p>}
+
+          {/* show the text of error if so occurs */}
           {error && <p className="error">{error}</p>}
+
+          {/* if data loaded and does not return false show it to user */}
           {!loading && stockInfo && (
             <div>
               <h3>{stockInfo.ticker}</h3>
               {stockInfo.results && stockInfo.results.length > 0 ? (
                 <div>
+                  {/* results[0] means the first array from API with data */}
                   <p>Open: {stockInfo.results[0].o}</p>
                   <p>Close: {stockInfo.results[0].c}</p>
                   <p>High: {stockInfo.results[0].h}</p>
