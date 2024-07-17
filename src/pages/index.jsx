@@ -3,7 +3,7 @@ import Link from 'next/link';
 import StockIndices from '@/components/StockIndices';
 import useAuth from '@/hooks/useAuth';
 
-import '../app/page.scss';
+import '../styles/page.scss';
 
 export default function Home() {
   const { user } = useAuth();

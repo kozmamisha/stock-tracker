@@ -7,6 +7,7 @@ import useAuth from '@/hooks/useAuth';
 import './header.scss';
 
 const Header = () => {
+  // custom hook for checking is user authorized and logout
   const { user, logout } = useAuth();
 
   const handleLogout = async () => {

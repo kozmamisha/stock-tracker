@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
-
+import { toast } from 'react-toastify';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+
 import { auth } from '@/firebase/firebaseConfig';
 import useAuth from '@/hooks/useAuth';
 
+import styles from '../../../styles/login.scss';
+
 const Login = () => {
+  // user from custom hook useAuth for checking is user authorized
   const { user } = useAuth();
   const router = useRouter();
   const [email, setEmail] = useState('');
@@ -27,30 +31,38 @@ const Login = () => {
       toast.success('Successfully logged in');
       router.push('/');
     } catch (error) {
+      console.log(error);
       toast.error('Failed to log in');
-      setError(error.message);
+      setError('Email or password are incorrect');
     }
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-      </form>
+    <div className="login">
+      <div className="login__box">
+        <h1>Welcome to Stock Tracker</h1>
+        <p>
+          Don't have an account yet? <Link href="/auth/register">Sign up</Link>
+        </p>
+        {error && <p className={styles.error}>{error}</p>}
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="login__box-button" type="submit">
+            Sign In
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

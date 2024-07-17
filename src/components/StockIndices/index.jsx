@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { fetchStockData } from '@/services/apiService';
-import './stockIndices.scss';
 import { getFormattedDates } from '@/utils/dateFormatter';
+import './stockIndices.scss';
 
 const StockIndices = () => {
   const [ticker, setTicker] = useState('');
@@ -9,6 +9,7 @@ const StockIndices = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // dates from util for API
   const { currentDate, previousDate } = getFormattedDates();
 
   const handleSubmit = async (e) => {
@@ -21,6 +22,7 @@ const StockIndices = () => {
     setLoading(true);
     setError('');
     try {
+      //fetching data from API using custom apiService
       const data = await fetchStockData(ticker, 1, 'day', previousDate, currentDate);
       if (data && data.results && data.results.length > 0) {
         setStockInfo(data);
@@ -31,7 +33,7 @@ const StockIndices = () => {
     } catch (error) {
       setError('Error fetching data. Please try again later.');
       console.error('Error fetching stock data:', error);
-      setStockInfo(null);
+      setStockInfo(null); // provide null if data doesn't get
     } finally {
       setLoading(false);
     }
@@ -75,6 +77,7 @@ const StockIndices = () => {
               )}
             </div>
           )}
+          {/* display message to user when he firstly comes to the page and didn't search yet */}
           {!loading && !stockInfo && !error && (
             <p className="indices__start">There will be data about stock indices</p>
           )}

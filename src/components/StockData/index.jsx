@@ -12,7 +12,7 @@ const StockData = () => {
   // default values for API
   const ticker = 'USD';
   const multiplier = 1;
-  const timespan = 'day';
+  const timespan = 'hour';
   const from = previousDate;
   const to = currentDate;
 
@@ -35,6 +35,7 @@ const StockData = () => {
     fetchData();
   }, [ticker, multiplier, timespan, from, to]);
 
+  // provide loading if data is not loaded yet
   if (stockData === null) {
     return <div className="ticker container">Loading...</div>;
   }

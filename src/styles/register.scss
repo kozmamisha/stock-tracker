@@ -1,0 +1,71 @@
+.register {
+  background-image: url('https://finnhub.io/static/img/webp/register-stock-exchange.webp');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 30vw;
+    text-align: center;
+
+    h1 {
+      margin-bottom: 10px;
+      color: #45a049;
+      font-weight: 400;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    a {
+      color: #4caf50;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &-button {
+      padding: 10px;
+      border-radius: 3px;
+      border: none;
+      background-color: white;
+      border: 1px solid #45a049;
+      color: #000;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: #fff;
+        background-color: #45a049;
+      }
+    }
+  }
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}

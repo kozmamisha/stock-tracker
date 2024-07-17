@@ -1,6 +1,5 @@
-// _app.js
 import 'react-toastify/dist/ReactToastify.css';
-import '../app/globals.scss';
+import '../styles/globals.scss';
 
 import { ToastContainer } from 'react-toastify';
 import Header from '@/components/Header';
@@ -9,7 +8,10 @@ import StockData from '@/components/StockData';
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      {/* component for lib react-toastify displaying */}
       <ToastContainer position="bottom-left" />
+
+      {/* component for displaying data from API on the top of the page */}
       <StockData />
       <Header />
       <Component {...pageProps} />

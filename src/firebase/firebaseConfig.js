@@ -1,4 +1,4 @@
-// lib/firebaseConfig.js
+// firebase configurations
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getAnalytics } from 'firebase/analytics';
