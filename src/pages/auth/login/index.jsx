@@ -7,7 +7,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebase/firebaseConfig';
 import useAuth from '@/hooks/useAuth';
 
-import styles from '../../../styles/login.scss';
+import '../../../styles/login.scss';
 
 const Login = () => {
   // user from custom hook useAuth for checking is user authorized
@@ -44,7 +44,7 @@ const Login = () => {
         <p>
           Don't have an account yet? <Link href="/auth/register">Sign up</Link>
         </p>
-        {error && <p className={styles.error}>{error}</p>}
+        {error && <p className="error">{error}</p>}
         <form onSubmit={handleLogin}>
           <input
             type="email"

@@ -12,7 +12,7 @@ const StockData = () => {
   // default values for API
   const ticker = 'USD';
   const multiplier = 1;
-  const timespan = 'hour';
+  const timespan = 'minute';
   const from = previousDate;
   const to = currentDate;
 

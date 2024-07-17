@@ -24,6 +24,7 @@ const Header = () => {
       <nav>
         <Link href="/">Home</Link>
         <Link href="/chart">Stock chart</Link>
+        <Link href="/alerts">Alert system</Link>
       </nav>
       <div className="header__auth">
         {user ? (

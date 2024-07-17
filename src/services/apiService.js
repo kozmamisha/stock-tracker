@@ -1,13 +1,12 @@
 // separated service for fetching data from API
 import axios from 'axios';
 
-//! TODO using env
-const BASE_URL = 'https://api.polygon.io/v2/aggs';
-const apiKey = 'zfyY7W9sg0Ld3VQgfOosyyrRFwAT0Cge';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const apiKey = process.env.NEXT_PUBLIC_APIKEY;
 
 // fetching data from API (in props are specifications to API which user can modify)
 // timespan is responsible for timeout of updating data (hour means updating every 1 hour, 1 cause multiplier = 1)
-const fetchStockData = async (ticker, multiplier = 1, timespan = 'hour', from, to) => {
+const fetchStockData = async (ticker, multiplier = 1, timespan = 'minute', from, to) => {
   const url = `${BASE_URL}/ticker/${ticker}/range/${multiplier}/${timespan}/${from}/${to}?apiKey=${apiKey}`;
 
   try {
