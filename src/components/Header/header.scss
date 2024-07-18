@@ -3,11 +3,11 @@
   justify-content: space-between;
   align-items: center;
   background-color: #2e2e2e;
-  padding-top: 9px;
-  padding-bottom: 9px;
+  padding-top: 9px !important;
+  padding-bottom: 9px !important;
 
   a {
-    padding: 7px 25px;
+    padding: 7px 25px !important;
     display: inline-block;
     background-color: #2e2e2e;
     transition: all 0.2s ease-in-out;

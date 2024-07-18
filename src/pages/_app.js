@@ -1,9 +1,11 @@
-import 'react-toastify/dist/ReactToastify.css';
-import '../styles/globals.scss';
-
+import React from 'react';
 import { ToastContainer } from 'react-toastify';
+
 import Header from '@/components/Header';
 import StockData from '@/components/StockData';
+
+import 'react-toastify/dist/ReactToastify.css';
+import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {
   return (

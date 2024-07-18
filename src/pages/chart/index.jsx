@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -51,7 +51,7 @@ const StockChart = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-    const data = await fetchStockData(ticker, 1, 'day', fromDate, toDate);
+    const data = await fetchStockData(ticker, 1, 'hour', fromDate, toDate);
     setLoading(false);
     if (data && data.results) {
       const labels = data.results.map((result) => new Date(result.t).toLocaleDateString());
@@ -122,7 +122,7 @@ const StockChart = () => {
           </div>
         </div>
 
-        <button type="submit">Apply</button>
+        <button className='green-button' type="submit">Apply</button>
       </form>
       {loading ? (
         <p>Loading...</p>

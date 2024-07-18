@@ -23,7 +23,7 @@ const StockIndices = () => {
     setError('');
     try {
       //fetching data from API using custom apiService
-      const data = await fetchStockData(ticker, 1, 'day', previousDate, currentDate);
+      const data = await fetchStockData(ticker, 1, 'minute', previousDate, currentDate);
       if (data && data.results && data.results.length > 0) {
         setStockInfo(data);
       } else {
@@ -49,12 +49,15 @@ const StockIndices = () => {
           <h2>Parameters</h2>
           <p>Symbol:</p>
           <input
+            className="form-input"
             type="text"
             placeholder="Write a name of ticker..."
             value={ticker}
             onChange={(e) => setTicker(e.target.value.toUpperCase())}
           />
-          <button type="submit">Apply</button>
+          <button className="green-button" type="submit">
+            Apply
+          </button>
         </form>
         <div className="indices__result">
           {/* show loading if data is loading */}

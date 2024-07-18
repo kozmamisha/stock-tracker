@@ -44,20 +44,6 @@
 
   button {
     margin: 15px auto;
-    display: block;
-    background-color: #23b249;
-    padding: 12px 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-
-    &:hover {
-      background-color: #1e7d37;
-    }
-
-    &:active {
-      background-color: #6c89e1;
-    }
   }
 
   p {

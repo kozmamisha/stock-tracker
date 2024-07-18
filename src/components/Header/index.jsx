@@ -26,6 +26,7 @@ const Header = () => {
         <Link href="/chart">Stock chart</Link>
         <Link href="/alerts">Alert system</Link>
       </nav>
+
       <div className="header__auth">
         {user ? (
           <Link href="/" onClick={handleLogout}>

@@ -7,7 +7,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebase/firebaseConfig';
 import useAuth from '@/hooks/useAuth';
 
-import '../../../styles/register.scss';
+import '../../../styles/auth-form.scss';
 
 const Register = () => {
   const { user } = useAuth();
@@ -37,8 +37,8 @@ const Register = () => {
   };
 
   return (
-    <div className="register">
-      <div className="register__box">
+    <div className="auth register">
+      <div className="auth__box">
         <h1>Welcome to Stock Tracker</h1>
         <p>
           Already have an account? <Link href="/auth/login">Sign in</Link>
@@ -57,7 +57,7 @@ const Register = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="register__box-button" type="submit">
+          <button className="auth__box-button" type="submit">
             Register
           </button>
         </form>

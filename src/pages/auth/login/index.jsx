@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
@@ -7,7 +7,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebase/firebaseConfig';
 import useAuth from '@/hooks/useAuth';
 
-import '../../../styles/login.scss';
+import '../../../styles/auth-form.scss';
 
 const Login = () => {
   // user from custom hook useAuth for checking is user authorized
@@ -38,8 +38,8 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <div className="login__box">
+    <div className="auth login">
+      <div className="auth__box">
         <h1>Welcome to Stock Tracker</h1>
         <p>
           Don't have an account yet? <Link href="/auth/register">Sign up</Link>
@@ -58,7 +58,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="login__box-button" type="submit">
+          <button className="auth__box-button" type="submit">
             Sign In
           </button>
         </form>

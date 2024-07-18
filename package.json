@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^1.7.2",
@@ -15,9 +16,21 @@
     "firebase": "^10.12.3",
     "next": "14.2.5",
     "react": "^18",
+    "react-burger-menu": "^3.0.9",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
     "react-toastify": "^10.0.5",
     "sass": "^1.77.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.9",
+    "@babel/preset-env": "^7.24.8",
+    "@babel/preset-react": "^7.24.7",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
   }
 }

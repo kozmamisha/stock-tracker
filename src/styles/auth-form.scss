@@ -1,4 +1,4 @@
-.login {
+.auth {
   background-image: url('https://finnhub.io/static/img/webp/finnhub-data-center.webp');
   background-size: cover;
   background-position: center;
@@ -68,4 +68,12 @@ input {
   padding: 10px;
   border-radius: 3px;
   border: 1px solid #ccc;
+}
+
+.login {
+  
+}
+
+.register {
+  background-image: url('https://finnhub.io/static/img/webp/register-stock-exchange.webp');
 }

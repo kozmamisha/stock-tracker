@@ -4,7 +4,8 @@
     background-size: cover;
     background-position: right;
     height: 93.7vh;
-    padding: 200px 0 0 15vw;
+    padding-top: 200px;
+    padding-left: 15vw;
 
     &-text {
       h1 {
@@ -22,21 +23,10 @@
       padding-top: 20px;
 
       a {
-        background-color: #23b249;
-        padding: 12px 40px;
-        border-radius: 5px;
-        transition: all 0.2s ease;
+        display: inline;
 
         &:first-child {
           margin-right: 10px;
-        }
-
-        &:hover {
-          background-color: #1e7d37;
-        }
-
-        &:active {
-          background-color: #6c89e1;
         }
       }
     }

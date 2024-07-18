@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './thresholdAlert.scss';
 import { toast } from 'react-toastify';
 
@@ -54,11 +54,23 @@ const ThresholdAlert = ({ onSubmit }) => {
       <form onSubmit={handleSubmit} className="threshold-alert__form">
         <label>
           Index Ticker:
-          <input type="text" value={indexTicker} onChange={handleIndexTickerChange} required />
+          <input
+            className="form-input"
+            type="text"
+            value={indexTicker}
+            onChange={handleIndexTickerChange}
+            required
+          />
         </label>
         <label>
           Threshold Value:
-          <input type="number" value={thresholdValue} onChange={handleThresholdChange} required />
+          <input
+            className="form-input"
+            type="number"
+            value={thresholdValue}
+            onChange={handleThresholdChange}
+            required
+          />
         </label>
         <label>
           Notify when:
@@ -67,7 +79,9 @@ const ThresholdAlert = ({ onSubmit }) => {
             <option value="below">Below</option>
           </select>
         </label>
-        <button type="submit">Set Alert</button>
+        <button className="green-button" type="submit">
+          Set Alert
+        </button>
       </form>
     </div>
   );

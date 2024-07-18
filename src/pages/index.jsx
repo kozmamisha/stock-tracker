@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link';
 
 import StockIndices from '@/components/StockIndices';
@@ -18,8 +19,8 @@ export default function Home() {
             <h2>To get started please log in or create an account</h2>
           </div>
           <div className="main__unauthorized-buttons">
-            <Link href="/auth/login">Log In</Link>
-            <Link href="/auth/login">Sign Up</Link>
+            <Link className='green-button' href="/auth/login">Log In</Link>
+            <Link className='green-button' href="/auth/login">Sign Up</Link>
           </div>
         </div>
       ) : (

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ThresholdAlert from '@/components/ThresholdAlert';
 import { fetchStockData } from '@/services/apiService';
 import { getFormattedDates } from '@/utils/dateFormatter';
