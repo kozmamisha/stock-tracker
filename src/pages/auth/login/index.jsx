@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <div className="auth login">
+    <div className="auth">
       <div className="auth__box">
         <h1>Welcome to Stock Tracker</h1>
         <p>

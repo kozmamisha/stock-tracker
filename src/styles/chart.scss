@@ -38,6 +38,7 @@
     }
 
     &-date {
+      padding: 10px;
       width: 12vw;
     }
   }
@@ -54,5 +55,36 @@
 
   &__graphic {
     margin-bottom: 100px;
+  }
+}
+
+//----------------- 1000px ------------------
+
+@media (max-width: 1000px) {
+  .chart {
+    &__form {
+      &-date {
+        width: 18vw;
+      }
+    }
+  }
+}
+
+//----------------- 700px ------------------
+
+@media (max-width: 700px) {
+  .chart {
+    input {
+      width: 35vw;
+    }
+
+    &__form {
+      justify-content: space-between;
+      gap: 0;
+
+      &-date {
+        width: 18vw;
+      }
+    }
   }
 }

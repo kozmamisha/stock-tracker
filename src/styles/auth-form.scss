@@ -70,10 +70,26 @@ input {
   border: 1px solid #ccc;
 }
 
-.login {
-  
-}
-
 .register {
   background-image: url('https://finnhub.io/static/img/webp/register-stock-exchange.webp');
+}
+
+//-------------------- 900px ----------------------------
+
+@media (max-width: 900px) {
+  .auth {
+    &__box {
+      width: 60vw;
+    }
+  }
+}
+
+//-------------------- 500px ----------------------------
+
+@media (max-width: 500px) {
+  .auth {
+    &__box {
+      width: 85vw;
+    }
+  }
 }

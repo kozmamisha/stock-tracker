@@ -35,3 +35,16 @@
     }
   }
 }
+
+
+//----------------- 600px ------------------
+
+@media (max-width: 600px) {
+  .threshold-alert {
+    &__form {
+      input {
+        width: 75vw;
+      }
+    }
+  }
+}
