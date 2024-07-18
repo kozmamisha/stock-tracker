@@ -17,4 +17,15 @@ const fetchStockData = async (ticker, multiplier = 1, timespan = 'minute', from,
   }
 };
 
-export { fetchStockData };
+// auth from backend
+const registerUser = async (email, password) => {
+  try {
+    const response = await axios.post(`${apiBaseUrl}/auth/register`, { email, password });
+    return response.data;
+  } catch (error) {
+    console.error('Failed to register:', error.response?.data || error.message);
+    throw new Error(error.response?.data?.message || 'Failed to register');
+  }
+};
+
+export { fetchStockData, registerUser };

@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 import { auth } from '@/firebase/firebaseConfig';
 import useAuth from '@/hooks/useAuth';
+import { registerUser } from '@/services/apiService';
 
 import '../../../styles/auth-form.scss';
 
@@ -26,12 +27,12 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      router.push('/');
+      await registerUser(email, password);
+      router.push('/'); // Redirect on successful registration
       toast.success('Successfully registered!');
     } catch (error) {
       toast.error('Failed to register :(');
-      console.log(error);
+      console.error(error);
       setError(error.message);
     }
   };
@@ -48,12 +49,14 @@ const Register = () => {
           <input
             type="email"
             placeholder="Email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
             placeholder="Password"
+            required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
