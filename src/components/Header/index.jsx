@@ -1,14 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
 import useAuth from '@/hooks/useAuth';
 import './header.scss';
 
 const Header = () => {
-  // custom hook for checking is user authorized and logout
-  const { user, logout } = useAuth();
+  const { user, logout } = useAuth(); // Custom hook for checking if the user is authorized and for logout
+  const [isOpen, setIsOpen] = useState(false); // State for burger menu
+  const menuRef = useRef(); // Ref for burger menu
+  const burgerRef = useRef(); // Ref for burger icon
 
   const handleLogout = async () => {
     try {
@@ -19,23 +21,71 @@ const Header = () => {
     }
   };
 
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        burgerRef.current &&
+        !burgerRef.current.contains(e.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.body.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
   return (
     <header className="header container">
-      <nav>
-        <Link href="/">Home</Link>
-        <Link href="/chart">Stock chart</Link>
-        <Link href="/alerts">Alert system</Link>
+      <div className="header__mobile-nav" ref={menuRef}>
+        <div
+          className={`burger-menu ${isOpen ? 'active' : ''}`}
+          onClick={toggleMenu}
+          ref={burgerRef}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+        </div>
+      </div>
+      <nav className={`header__nav ${isOpen ? 'active' : ''}`}>
+        <Link onClick={() => setIsOpen(false)} href="/">
+          Home
+        </Link>
+        <Link onClick={() => setIsOpen(false)} href="/chart">
+          Stock chart
+        </Link>
+        <Link onClick={() => setIsOpen(false)} href="/alerts">
+          Alert system
+        </Link>
       </nav>
 
       <div className="header__auth">
         {user ? (
-          <Link href="/" onClick={handleLogout}>
+          <Link
+            href="/"
+            onClick={() => {
+              handleLogout();
+              setIsOpen(false);
+            }}>
             Logout
           </Link>
         ) : (
           <>
-            <Link href="/auth/login">Login</Link>
-            <Link href="/auth/register">Sign up</Link>
+            <Link onClick={() => setIsOpen(false)} href="/auth/login">
+              Login
+            </Link>
+            <Link onClick={() => setIsOpen(false)} href="/auth/register">
+              Sign up
+            </Link>
           </>
         )}
       </div>

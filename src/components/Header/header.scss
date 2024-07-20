@@ -24,4 +24,78 @@
       }
     }
   }
+
+  &__mobile-nav {
+    display: none;
+  }
+}
+
+//--------------------- 600px -------------------------
+
+@media screen and (max-width: 600px) {
+  .header__mobile-nav {
+    display: block;
+  }
+
+  .header__nav {
+    display: none;
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .header__nav.active {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  .header__nav.active {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .header__nav a {
+    text-align: center;
+    width: 100%;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    background-color: #333;
+    border: 1px solid #828282;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #595959;
+    }
+  }
+
+  .burger-menu {
+    cursor: pointer;
+    display: block;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+
+  .burger-menu.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-menu.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
 }
